@@ -1,6 +1,7 @@
 package domain
 
 import br.dev.ardc.domain.Badge
+import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
@@ -37,5 +38,18 @@ class BadgeTest {
                 earnedAt = LocalDate.now().plusDays(1)
             )
         }.isInstanceOf(IllegalArgumentException::class.java)
+    }
+
+    @Test
+    fun `creating a badge from the create function should autopopulate the ID`(): Unit {
+        // Arrange
+        // Act
+        val badge = Badge.create(
+            title = "A badge title",
+            description = "A badge description",
+            earnedAt = LocalDate.now()
+        )
+        // Assert
+        assertThat(badge.id).isNotNull()
     }
 }
