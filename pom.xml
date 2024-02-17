@@ -20,7 +20,8 @@
 	</properties>
     <modules>
         <module>dev-journey-core</module>
-    </modules>
+		<module>dev-journey-common</module>
+	</modules>
 	<build>
 		<plugins>
 			<plugin>
