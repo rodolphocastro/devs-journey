@@ -13,6 +13,12 @@
 	<name>dev-journey-core</name>
 	<description>Dev Journey Core service</description>
 	<dependencies>
+
+		<dependency>
+			<groupId>br.dev.ardc</groupId>
+			<artifactId>dev-journey-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-mongodb</artifactId>
