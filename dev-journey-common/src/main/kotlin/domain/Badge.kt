@@ -10,14 +10,14 @@ import java.util.UUID
  * @param description the description of the badge, may be blank
  * @param earnedAt the date when the badge was earned, cannot be in the future
  */
-data class Badge(
+class Badge(
     val id: UUID,
-    val title: String,
-    val description: String,
-    val earnedAt: LocalDate
-) {
+    val assignedToUser: UUID,
+    title: String,
+    description: String,
+    val earnedAt: LocalDate,
+) : BadgeBase(title, description) {
     init {
-        require(title.isNotBlank()) { "Title cannot be blank" }
         require(earnedAt.isBefore(LocalDate.now().plusDays(1))) { "Date cannot be in the future" }
     }
 
@@ -28,13 +28,20 @@ data class Badge(
          * @param description the description of the badge
          * @param earnedAt the date when the badge was earned
          */
-        fun create(title: String, description: String, earnedAt: LocalDate): Badge {
+        fun create(title: String, assignedToUser:UUID, description: String, earnedAt: LocalDate): Badge {
             return Badge(
                 UUID.randomUUID(),
+                assignedToUser,
                 title,
                 description,
                 earnedAt
             )
         }
+    }
+}
+
+open class BadgeBase(val title: String, val description: String) {
+    init {
+        require(title.isNotBlank()) { "Title cannot be blank" }
     }
 }

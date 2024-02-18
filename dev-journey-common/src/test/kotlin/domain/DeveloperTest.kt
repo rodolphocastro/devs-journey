@@ -1,5 +1,6 @@
 package domain
 
+import br.dev.ardc.domain.BadgeBase
 import br.dev.ardc.domain.Developer
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
@@ -7,13 +8,13 @@ import java.util.*
 import kotlin.test.Test
 
 class DeveloperTest {
-    lateinit var subject: Developer
+    private lateinit var subject: Developer
 
     @Test
     fun `when creating a developer the name should not be empty`(): Unit {
         assertThatThrownBy {
             // Act
-            Developer(
+            subject = Developer(
                 id = UUID.randomUUID(), name = "", email = "an_email@domain.com"
             )
         }.isInstanceOf(IllegalArgumentException::class.java)
@@ -23,7 +24,7 @@ class DeveloperTest {
     fun `when creating a developer the email should not be empty`(): Unit {
         assertThatThrownBy {
             // Act
-            Developer(
+            subject = Developer(
                 id = UUID.randomUUID(), name = "A name", email = ""
             )
         }.isInstanceOf(IllegalArgumentException::class.java)
@@ -33,8 +34,24 @@ class DeveloperTest {
     fun `the create method should automatically provide an ID for a Developer`(): Unit {
         // Arrange
         // Act
-        val developer = Developer.create(name = "A name", email = "an_email@domain.com")
+        subject = Developer.create(name = "A name", email = "an_email@domain.com")
         // Assert
-        assertThat(developer.id).isNotNull()
+        assertThat(subject.id).isNotNull()
+    }
+
+    @Test
+    fun `granting a badge creates a new badge instance`(): Unit {
+        // Arrange
+        subject = Developer(
+            id = UUID.randomUUID(), name = "A name", email = "dev_mail@domain.com")
+
+        // Act
+        val badge = subject.grantBadge(
+            BadgeBase(title = "A badge title", description = "A badge description")
+        )
+
+        // Assert
+        assertThat(badge).isNotNull()
+        assertThat(badge.assignedToUser).isEqualTo(subject.id)
     }
 }

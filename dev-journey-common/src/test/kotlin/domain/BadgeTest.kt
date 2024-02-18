@@ -16,8 +16,9 @@ class BadgeTest {
         // Assert
         assertThatThrownBy{
             // Act
-            Badge(
+            subject = Badge(
                 id = UUID.randomUUID(),
+                assignedToUser = UUID.randomUUID(),
                 title = "",
                 description = "A badge description",
                 earnedAt = LocalDate.now()
@@ -31,8 +32,9 @@ class BadgeTest {
         // Assert
         assertThatThrownBy{
             // Act
-            Badge(
+            subject = Badge(
                 id = UUID.randomUUID(),
+                assignedToUser = UUID.randomUUID(),
                 title = "A badge title",
                 description = "A badge description",
                 earnedAt = LocalDate.now().plusDays(1)
@@ -44,12 +46,13 @@ class BadgeTest {
     fun `creating a badge from the create function should autopopulate the ID`(): Unit {
         // Arrange
         // Act
-        val badge = Badge.create(
+        subject = Badge.create(
             title = "A badge title",
+            assignedToUser = UUID.randomUUID(),
             description = "A badge description",
             earnedAt = LocalDate.now()
         )
         // Assert
-        assertThat(badge.id).isNotNull()
+        assertThat(subject.id).isNotNull()
     }
 }

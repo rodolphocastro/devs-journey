@@ -1,5 +1,6 @@
 package br.dev.ardc.domain
 
+import java.time.LocalDate
 import java.util.*
 
 /**
@@ -18,6 +19,13 @@ data class Developer(
         require(email.isNotBlank()) { "Email must not be blank" }
     }
 
+    /**
+     * Grants a badge to the developer.
+     */
+    fun grantBadge(badge: BadgeBase): Badge {
+        return Badge.create(badge.title, this.id, badge.description, LocalDate.now())
+    }
+
     companion object {
         /**
          * Creates a new developer with a random UUID.
@@ -27,3 +35,4 @@ data class Developer(
         }
     }
 }
+
