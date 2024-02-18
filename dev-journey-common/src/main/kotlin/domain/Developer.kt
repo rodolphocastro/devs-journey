@@ -22,8 +22,8 @@ data class Developer(
     /**
      * Grants a badge to the developer.
      */
-    fun grantBadge(badge: BadgeBase): Badge {
-        return Badge.create(badge.title, this.id, badge.description, LocalDate.now())
+    fun grantBadge(badge: Badge): EarnedBadge {
+        return EarnedBadge.create(badge.title, this.id, badge.description, LocalDate.now())
     }
 
     companion object {

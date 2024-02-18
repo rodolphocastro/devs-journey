@@ -1,14 +1,14 @@
 package domain
 
-import br.dev.ardc.domain.Badge
+import br.dev.ardc.domain.EarnedBadge
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import java.time.LocalDate
 import java.util.*
 
-class BadgeTest {
-    lateinit var subject: Badge
+class EarnedBadgeTest {
+    lateinit var subject: EarnedBadge
     
     @Test
     fun `a badge's title should never be empty`(): Unit {
@@ -16,7 +16,7 @@ class BadgeTest {
         // Assert
         assertThatThrownBy{
             // Act
-            subject = Badge(
+            subject = EarnedBadge(
                 id = UUID.randomUUID(),
                 assignedToUser = UUID.randomUUID(),
                 title = "",
@@ -32,7 +32,7 @@ class BadgeTest {
         // Assert
         assertThatThrownBy{
             // Act
-            subject = Badge(
+            subject = EarnedBadge(
                 id = UUID.randomUUID(),
                 assignedToUser = UUID.randomUUID(),
                 title = "A badge title",
@@ -46,7 +46,7 @@ class BadgeTest {
     fun `creating a badge from the create function should autopopulate the ID`(): Unit {
         // Arrange
         // Act
-        subject = Badge.create(
+        subject = EarnedBadge.create(
             title = "A badge title",
             assignedToUser = UUID.randomUUID(),
             description = "A badge description",

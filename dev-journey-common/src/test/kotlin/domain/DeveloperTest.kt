@@ -1,6 +1,6 @@
 package domain
 
-import br.dev.ardc.domain.BadgeBase
+import br.dev.ardc.domain.Badge
 import br.dev.ardc.domain.Developer
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
@@ -47,7 +47,7 @@ class DeveloperTest {
 
         // Act
         val badge = subject.grantBadge(
-            BadgeBase(title = "A badge title", description = "A badge description")
+            Badge(title = "A badge title", description = "A badge description")
         )
 
         // Assert
