@@ -2,11 +2,20 @@ package br.dev.ardc.domain
 
 import java.util.UUID
 
+/**
+ * A journey represents a path that a developer may take to learn new skills and earn badges.
+ * @param id the unique identifier of the journey
+ * @param name the name of the journey
+ * @param description the description of the journey, may be blank
+ * @param badges the badges that are part of the journey
+ * @param subscribers the UUID of users that have subscribed to this journey
+ */
 class Journey (
     val id: UUID,
     val name: String,
     val description: String,
-    val badges: List<BadgeBase>)
+    val badges: List<Badge>,
+    val subscribers: Set<UUID>)
 {
     init {
         require(name.isNotBlank()) { "Name must not be blank" }
@@ -16,12 +25,13 @@ class Journey (
      * Adds a new badge to the journey.
      * @param newBadge the badge to be added
      */
-    fun expandJourney(newBadge: BadgeBase): Journey {
+    fun expandJourney(newBadge: Badge): Journey {
         return Journey(
             id = this.id,
             name = this.name,
             description = this.description,
-            badges = this.badges + newBadge
+            badges = this.badges + newBadge,
+            subscribers = this.subscribers
         )
     }
 
@@ -35,7 +45,36 @@ class Journey (
             id = this.id,
             name = this.name,
             description = this.description,
-            badges = this.badges.filter { it.title != badgeTitle }
+            badges = this.badges.filter { it.title != badgeTitle },
+            subscribers = this.subscribers
+        )
+    }
+
+    /**
+     * Adds a subscriber to the journey.
+     * @param userId user's id who's subscribing to the journey
+     */
+    fun addSubscriber(userId: UUID): Journey {
+        return Journey(
+            id = this.id,
+            name = this.name,
+            description = this.description,
+            badges = this.badges,
+            subscribers = this.subscribers + userId
+        )
+    }
+
+    /**
+     * Removes a subscriber for the journey.
+     * @param userId user's id who's unsubscribing from the journey
+     */
+    fun removeSubscriber(userId: UUID): Journey {
+        return Journey(
+            this.id,
+            this.name,
+            this.description,
+            this.badges,
+            this.subscribers - userId
         )
     }
 }
