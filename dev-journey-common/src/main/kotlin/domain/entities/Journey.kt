@@ -1,4 +1,4 @@
-package br.dev.ardc.domain
+package br.dev.ardc.domain.entities
 
 import java.util.UUID
 

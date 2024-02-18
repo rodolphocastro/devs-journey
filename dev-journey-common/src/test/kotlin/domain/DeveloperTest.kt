@@ -1,7 +1,7 @@
 package domain
 
-import br.dev.ardc.domain.Badge
-import br.dev.ardc.domain.Developer
+import br.dev.ardc.domain.entities.Badge
+import br.dev.ardc.domain.entities.Developer
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import java.util.*

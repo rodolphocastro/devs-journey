@@ -1,6 +1,6 @@
 package domain
 
-import br.dev.ardc.domain.EarnedBadge
+import br.dev.ardc.domain.entities.EarnedBadge
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
