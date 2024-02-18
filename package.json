@@ -1,0 +1,16 @@
+{
+  "name": "the-devs-journey",
+  "version": "1.0.0",
+  "description": "The Dev's journey is a project to apply gamification to the path of a Software Engineer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.0.11"
+  }
+}
