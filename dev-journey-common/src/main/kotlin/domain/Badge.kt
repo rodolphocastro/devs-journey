@@ -4,7 +4,7 @@ import java.time.LocalDate
 import java.util.UUID
 
 /**
- * A badge represents an achievement or a milestone that a dev may earn on its Journey.
+ * A badge represents an achievement or a milestone that a dev has earned on its Journey.
  * @param id the unique identifier of the badge
  * @param title the title of the badge
  * @param description the description of the badge, may be blank
@@ -40,6 +40,11 @@ class Badge(
     }
 }
 
+/**
+ * A badge base represents an achievement or a milestone that a dev may earn on its Journey.
+ * @param title the title of the badge
+ * @param description the description of the badge, may be blank
+ */
 open class BadgeBase(val title: String, val description: String) {
     init {
         require(title.isNotBlank()) { "Title cannot be blank" }
