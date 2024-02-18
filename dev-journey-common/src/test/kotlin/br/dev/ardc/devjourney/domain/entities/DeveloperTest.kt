@@ -9,7 +9,7 @@ class DeveloperTest {
     private lateinit var subject: Developer
 
     @Test
-    fun `when creating a developer the name should not be empty`(): Unit {
+    fun `when creating a developer the name should not be empty`() {
         assertThatThrownBy {
             // Act
             subject = Developer(
@@ -19,7 +19,7 @@ class DeveloperTest {
     }
 
     @Test
-    fun `when creating a developer the email should not be empty`(): Unit {
+    fun `when creating a developer the email should not be empty`() {
         assertThatThrownBy {
             // Act
             subject = Developer(
@@ -29,7 +29,7 @@ class DeveloperTest {
     }
 
     @Test
-    fun `the create method should automatically provide an ID for a Developer`(): Unit {
+    fun `the create method should automatically provide an ID for a Developer`() {
         // Arrange
         // Act
         subject = Developer.create(name = "A name", email = "an_email@domain.com")
@@ -38,7 +38,7 @@ class DeveloperTest {
     }
 
     @Test
-    fun `granting a badge creates a new badge instance`(): Unit {
+    fun `granting a badge creates a new badge instance`() {
         // Arrange
         subject = Developer(
             id = UUID.randomUUID(), name = "A name", email = "dev_mail@domain.com")

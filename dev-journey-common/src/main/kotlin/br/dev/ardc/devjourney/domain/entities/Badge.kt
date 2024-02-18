@@ -30,7 +30,7 @@ class EarnedBadge(
     val assignedToUser: UUID,
     override val title: String,
     override val description: String,
-    val earnedAt: LocalDate,
+    val earnedAt: LocalDate
 ) : IBadge {
     init {
         require(title.isNotBlank()) { "Title cannot be blank" }
@@ -44,7 +44,7 @@ class EarnedBadge(
          * @param description the description of the badge
          * @param earnedAt the date when the badge was earned
          */
-        fun create(title: String, assignedToUser:UUID, description: String, earnedAt: LocalDate): EarnedBadge {
+        fun create(title: String, assignedToUser: UUID, description: String, earnedAt: LocalDate): EarnedBadge {
             return EarnedBadge(
                 UUID.randomUUID(),
                 assignedToUser,

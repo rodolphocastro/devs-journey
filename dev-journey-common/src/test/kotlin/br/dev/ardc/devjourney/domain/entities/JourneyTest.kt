@@ -10,7 +10,7 @@ class JourneyTest {
     private lateinit var subject: Journey
 
     @Test
-    fun `when creating a Journey the name should not be empty`(): Unit {
+    fun `when creating a Journey the name should not be empty`() {
         // Arrange
         // Act
         assertThatThrownBy {
@@ -25,7 +25,7 @@ class JourneyTest {
     }
 
     @Test
-    fun `when a journey is expanded with a new Badge a new Journey should be returned`(): Unit {
+    fun `when a journey is expanded with a new Badge a new Journey should be returned`() {
         // Arrange
         subject = Journey(
             id = UUID.randomUUID(),
@@ -48,7 +48,7 @@ class JourneyTest {
     }
 
     @Test
-    fun `when a journey is shrunken with a badge a new Journey should be returned without the given badge`(): Unit {
+    fun `when a journey is shrunken with a badge a new Journey should be returned without the given badge`() {
         // Arrange
         val knownTitle = "A badge title"
         subject = Journey(
@@ -69,7 +69,7 @@ class JourneyTest {
     }
 
     @Test
-    fun `when adding a subscriber a new entry should be added to the set`(): Unit {
+    fun `when adding a subscriber a new entry should be added to the set`() {
         // Arrange
         val newSubscriber = UUID.randomUUID()
         subject = Journey(
@@ -92,7 +92,7 @@ class JourneyTest {
     }
 
     @Test
-    fun `when removing a subscriber an entry should be removed from the set`(): Unit {
+    fun `when removing a subscriber an entry should be removed from the set`() {
         // Arrange
         val knownId = UUID.randomUUID()
         subject = Journey(
@@ -113,7 +113,7 @@ class JourneyTest {
     }
 
     @Test
-    fun `when shrinking a Journey a badge name is always required`(): Unit {
+    fun `when shrinking a Journey a badge name is always required`() {
         // Arrange
         // Act
         assertThatThrownBy {

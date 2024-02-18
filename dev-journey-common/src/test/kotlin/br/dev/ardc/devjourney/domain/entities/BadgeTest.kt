@@ -8,12 +8,12 @@ import java.util.*
 
 class EarnedBadgeTest {
     lateinit var subject: EarnedBadge
-    
+
     @Test
-    fun `a badge's title should never be empty`(): Unit {
+    fun `a badge's title should never be empty`() {
         // Arrange
         // Assert
-        assertThatThrownBy{
+        assertThatThrownBy {
             // Act
             subject = EarnedBadge(
                 id = UUID.randomUUID(),
@@ -26,10 +26,10 @@ class EarnedBadgeTest {
     }
 
     @Test
-    fun `a badge's earnedAt should never be in the future`(): Unit {
+    fun `a badge's earnedAt should never be in the future`() {
         // Arrange
         // Assert
-        assertThatThrownBy{
+        assertThatThrownBy {
             // Act
             subject = EarnedBadge(
                 id = UUID.randomUUID(),
@@ -42,7 +42,7 @@ class EarnedBadgeTest {
     }
 
     @Test
-    fun `creating a badge from the create function should autopopulate the ID`(): Unit {
+    fun `creating a badge from the create function should autopopulate the ID`() {
         // Arrange
         // Act
         subject = EarnedBadge.create(

@@ -10,13 +10,13 @@ import java.util.UUID
  * @param badges the badges that are part of the journey
  * @param subscribers the UUID of users that have subscribed to this journey
  */
-class Journey (
+class Journey(
     val id: UUID,
     val name: String,
     val description: String,
     val badges: List<Badge>,
-    val subscribers: Set<UUID>)
-{
+    val subscribers: Set<UUID>
+) {
     init {
         require(name.isNotBlank()) { "Name must not be blank" }
     }
