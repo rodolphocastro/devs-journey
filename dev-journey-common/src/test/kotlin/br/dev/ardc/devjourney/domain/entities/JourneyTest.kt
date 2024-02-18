@@ -111,4 +111,19 @@ class JourneyTest {
             assertThat(got.subscribers).isEmpty()
         }
     }
+
+    @Test
+    fun `when shrinking a Journey a badge name is always required`(): Unit {
+        // Arrange
+        // Act
+        assertThatThrownBy {
+            subject = Journey(
+                id = UUID.randomUUID(),
+                name = "A journey",
+                description = "A description",
+                badges = listOf(),
+                subscribers = setOf()
+            ).shrinkJourney("")
+        }.isInstanceOf(IllegalArgumentException::class.java)
+    }
 }
