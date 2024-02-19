@@ -1,0 +1,2 @@
+npx ktlint **/*.kt #lint kotlin files
+mvn test #run all tests

@@ -8,6 +8,8 @@ on:
 
 jobs:
   build_and_test:
+    env:
+      HUSKY: 0  # disabling husky hooks for CI
     runs-on: ubuntu-latest
 
     steps:

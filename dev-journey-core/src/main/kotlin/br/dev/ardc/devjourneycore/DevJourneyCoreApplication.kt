@@ -7,5 +7,5 @@ import org.springframework.boot.runApplication
 class DevJourneyCoreApplication
 
 fun main(args: Array<String>) {
-	runApplication<DevJourneyCoreApplication>(*args)
+    runApplication<DevJourneyCoreApplication>(*args)
 }
