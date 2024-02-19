@@ -432,6 +432,7 @@ ij_kotlin_wrap_expression_body_functions = 1
 ij_kotlin_wrap_first_method_in_call_chain = false
 ktlint_no-wildcard-imports = disabled
 ktlint_standard_no-wildcard-imports = disabled
+disabled_rules=no-wildcard-imports
 
 [{*.markdown,*.md}]
 ij_visual_guides = 

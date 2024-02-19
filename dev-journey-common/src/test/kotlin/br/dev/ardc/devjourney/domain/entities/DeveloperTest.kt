@@ -2,7 +2,7 @@ package br.dev.ardc.devjourney.domain.entities
 
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
-import java.util.*
+import java.util.UUID
 import kotlin.test.Test
 
 class DeveloperTest {

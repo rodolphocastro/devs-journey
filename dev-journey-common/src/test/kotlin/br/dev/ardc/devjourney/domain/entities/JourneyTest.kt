@@ -4,7 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.Test
 import org.mockito.kotlin.mock
-import java.util.*
+import java.util.UUID
 
 class JourneyTest {
     private lateinit var subject: Journey

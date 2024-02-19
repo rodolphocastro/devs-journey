@@ -1,7 +1,7 @@
 package br.dev.ardc.devjourney.domain.entities
 
 import java.time.LocalDate
-import java.util.*
+import java.util.UUID
 
 /**
  * A developer represents a person that is part of the community
